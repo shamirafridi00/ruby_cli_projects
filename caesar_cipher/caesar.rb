@@ -1,27 +1,38 @@
-function cipher(letters, shift_value)
+def cipher(coded, shift_value)
   result = ""
-  for letter in letters
-    if letter.ord >= 65 && letter.ord <= 90
-      if letter.ord + shift_value > 90
-        result += (letter.ord + shift_value - 26).chr
+
+  coded.each_char do |char|
+    if char.match(/[a-zA-z]/)
+
+      is_UpperCase = char.match(/[A-Z]/)
+
+      coded_char = char.ord
+
+      coded_char = coded_char + shift_value
+
+      if is_UpperCase
+        coded_char = ((coded_char - 'A'.ord) % 26) + 'A'.ord
       else
-        result += (letter.ord + shift_value).chr
+        coded_char = ((coded_char - 'a'.ord) % 26) + 'a'.ord
       end
-    elsif letter.ord >= 97 && letter.ord <= 122
-      if letter.ord + shift_value > 122
-        result += (letter.ord + shift_value - 26).chr
-      else
-        result += (letter.ord + shift_value).chr
-      end
+
+      coded_char = coded_char.chr
+
+      result = result +  coded_char
+
     else
-      result += letter
-    end
+      result = result + char
+      end
+
   end
+
   return result
 end
 
 
 
 
-orginal_letter = "Hello"
-result = cipher(letters, shift_value)
+coded = "What a string!"
+shift_value = 5
+result = cipher(coded, shift_value)
+puts result
