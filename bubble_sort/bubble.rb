@@ -1,14 +1,21 @@
-arr = [4,3,1,8]
+def bubble_sort(arr)
+  n = arr.length
+  swapped = true
 
-
-i = 0
-j = 1
-holder = 0
-
-
-arr.each do |i|
-  if i <  arr[i+1]
-    arr[i+1] = i
-    puts i.inspect
+  while swapped
+    swapped = false
+    (n - 1).times do |i|
+      if arr[i] > arr[i + 1]
+        arr[i], arr[i + 1] = arr[i + 1], arr[i] # Swap the elements
+        swapped = true
+      end
+    end
   end
+
+  arr # Return the sorted array
 end
+
+# Example usage:
+my_array = [64, 34, 25, 12, 22, 11, 90]
+sorted_array = bubble_sort(my_array)
+puts "Sorted array: #{sorted_array}"
