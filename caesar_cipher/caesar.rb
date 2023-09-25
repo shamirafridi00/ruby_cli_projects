@@ -23,9 +23,7 @@ def cipher(coded, shift_value)
     else
       result = result + char
       end
-
   end
-
   return result
 end
 
