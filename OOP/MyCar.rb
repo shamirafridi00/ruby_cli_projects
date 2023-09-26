@@ -46,6 +46,14 @@ class MyCar
     puts "Let's park this bad boy!"
   end
 
+  def self.gas_mileage(gallons, miles)
+    puts "#{miles/gallons} miles per gallons of gas"
+  end
+
+  def to_s
+    "My Car is a #{color}, #{year}, #{@model}!"
+  end
+
 end
 
 
@@ -64,3 +72,7 @@ lumina.spray_paint('red')
 lumina.current_speed
 lumina.shut_down
 lumina.current_speed
+MyCar.gas_mileage(13,351)
+
+farado = MyCar.new("2010", "Ford Focus", "silver")
+puts farado
